@@ -16,12 +16,13 @@ const SignUn: React.FC = () => {
         email: Yup.string()
           .required('Email is required')
           .email('Inform a valid email'),
-        password: Yup.string()
-          .required('Password is required')
-          .min(6, 'Your password must have at least 6 digits'),
+        password: Yup.string().min(
+          6,
+          'Your password must have at least 6 digits',
+        ),
       });
 
-      await schema.validate(data);
+      await schema.validate(data, { abortEarly: false });
     } catch (error) {
       console.log(error);
     }
