@@ -10,7 +10,7 @@ import logo from '../../assets/logo.svg';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimatedContainer, Background } from './styles';
 
 const SignUn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -42,27 +42,29 @@ const SignUn: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <img src={logo} alt="GoBarber Sign In" />
+        <AnimatedContainer>
+          <img src={logo} alt="GoBarber Sign In" />
 
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Sign up for GoBarber</h1>
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Sign up for GoBarber</h1>
 
-          <Input name="name" icon={FiUser} type="text" placeholder="Name" />
-          <Input name="email" icon={FiMail} type="text" placeholder="Email" />
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Password"
-          />
+            <Input name="name" icon={FiUser} type="text" placeholder="Name" />
+            <Input name="email" icon={FiMail} type="text" placeholder="Email" />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Password"
+            />
 
-          <Button type="submit">Sign Up</Button>
-        </Form>
+            <Button type="submit">Sign Up</Button>
+          </Form>
 
-        <Link to="/">
-          <FiArrowLeft />
-          Already have an account
-        </Link>
+          <Link to="/">
+            <FiArrowLeft />
+            Already have an account
+          </Link>
+        </AnimatedContainer>
       </Content>
     </Container>
   );

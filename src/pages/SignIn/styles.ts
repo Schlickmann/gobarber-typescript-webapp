@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 import signInBg from '../../assets/sign-in-background.png';
@@ -10,12 +10,30 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const slideLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translate(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px);
+  }
+`;
+
+export const AnimatedContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: ${slideLeft} 1s ease;
 
   form {
     margin: 80px 0;
